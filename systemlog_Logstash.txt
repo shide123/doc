@@ -1,0 +1,22 @@
+input  {
+     file {
+	path => "/var/log/ql/consumesvr_ql/consumesvr_ql.log"
+        path => "/var/log/ql/logonsvr_ql/logonsvr_ql.log"
+        path => "/var/log/ql/gateway_ql/gateway_ql.log"
+        path => "/var/log/ql/webgate_ql/webgate_ql.log"
+        path => "/var/log/ql/roomsvr_ql/roomsvr_ql.log"
+        path => "/var/log/ql/chatsvr_ql/chatsvr_ql.log"
+    }
+}
+
+filter {
+    grok {
+         match => {"message" => "%{SYSLOGTIMESTAMP:logtime}\s*%{WORD:hostname}\s*%{WORD:servicename}\[\s*%{NUMBER:processId}\s*\]:\s\[\s*%{LOGLEVEL:level}\s*\]\[\s*%{SYSLOGPROG:programfile}\s*%{WORD:method}\s*\:\s*%{NUMBER:linenumber}\s*\]\s*(?<info>([\s\S]*))"}
+}
+}
+output{
+       elasticsearch {
+       index => "cpp-%{+YYYY.MM.dd}"
+       hosts => ["123.123.123.11:9200"]
+ }
+}
