@@ -1,0 +1,16 @@
+1.etcd 搭建：
+
+------未加证书：
+（1） docker run -d --name etcd \
+    -p 2379:2379 \
+    -p 2380:2380 \
+    --volume=etcd-data:/etcd-data \
+    10.73.32.157:5000/etcd-amd64:3.1.13 \
+    /usr/local/bin/etcd \
+    --data-dir=/etcd-data --name node1 \
+    --initial-advertise-peer-urls http://10.16.86.117:2380 --listen-peer-urls http://0.0.0.0:2380 \
+    --advertise-client-urls http://10.16.86.117:2379 --listen-client-urls http://0.0.0.0:2379 \
+    --initial-cluster-state new \
+    --initial-cluster-token docker-etcd \
+    --initial-cluster node1=http://10.16.86.117:2380,node2=http://10.16.86.116:2380,node3=http://10.16.86.114:2380  
+ （2）
