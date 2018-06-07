@@ -1,0 +1,60 @@
+docker pull 10.73.32.157:5000/kube-controller-manager-amd64:v1.10.2
+docker pull 10.73.32.157:5000/kube-scheduler-amd64:v1.10.2             
+docker pull 10.73.32.157:5000/kube-apiserver-amd64:v1.10.2            
+docker pull 10.73.32.157:5000/kube-proxy-amd64:v1.10.2             
+docker pull 10.73.32.157:5000/k8s-dns-kube-dns-amd64:1.14.9   
+docker pull 10.73.32.157:5000/etcd-amd64:3.1.13 
+docker pull 10.73.32.157:5000/k8s-dns-sidecar-amd64:1.14.9 
+docker pull 10.73.32.157:5000/k8s-dns-dnsmasq-nanny-amd64:1.14.9 
+docker pull 10.73.32.157:5000/dnsmasq-metrics-amd64:1.0 
+docker pull 10.73.32.157:5000/kube-discovery-amd64:1.0
+docker pull 10.73.32.157:5000/exechealthz-amd64:1.1 
+docker pull 10.73.32.157:5000/pause-amd64:3.0 
+docker tag 10.73.32.157:5000/kube-controller-manager-amd64:v1.10.2 gcr.io/google_containers/kube-controller-manager-amd64:v1.10.2
+docker tag 10.73.32.157:5000/kube-scheduler-amd64:v1.10.2  gcr.io/google_containers/kube-scheduler-amd64:v1.10.2         
+docker tag 10.73.32.157:5000/kube-apiserver-amd64:v1.10.2    gcr.io/google_containers/kube-apiserver-amd64:v1.10.2         
+docker tag 10.73.32.157:5000/kube-proxy-amd64:v1.10.2        gcr.io/google_containers/kube-proxy-amd64:v1.10.2      
+docker tag 10.73.32.157:5000/k8s-dns-kube-dns-amd64:1.14.9    gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.9
+docker tag 10.73.32.157:5000/etcd-amd64:3.1.13  gcr.io/google_containers/etcd-amd64:3.1.13
+docker tag 10.73.32.157:5000/k8s-dns-sidecar-amd64:1.14.9  gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.9
+docker tag 10.73.32.157:5000/k8s-dns-dnsmasq-nanny-amd64:1.14.9  gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.9
+docker tag 10.73.32.157:5000/dnsmasq-metrics-amd64:1.0  gcr.io/google_containers/dnsmasq-metrics-amd64:1.0
+docker tag 10.73.32.157:5000/kube-discovery-amd64:1.0 gcr.io/google_containers/kube-discovery-amd64:1.0
+docker tag 10.73.32.157:5000/exechealthz-amd64:1.1 gcr.io/google_containers/exechealthz-amd64:1.1 
+docker tag 10.73.32.157:5000/pause-amd64:3.0  gcr.io/google_containers/pause-amd64:3.0
+docker rmi 10.73.32.157:5000/kube-controller-manager-amd64:v1.10.2
+docker rmi 10.73.32.157:5000/kube-scheduler-amd64:v1.10.2             
+docker rmi 10.73.32.157:5000/kube-apiserver-amd64:v1.10.2            
+docker rmi 10.73.32.157:5000/kube-proxy-amd64:v1.10.2             
+docker rmi 10.73.32.157:5000/k8s-dns-kube-dns-amd64:1.14.9   
+docker rmi 10.73.32.157:5000/etcd-amd64:3.1.13 
+docker rmi 10.73.32.157:5000/k8s-dns-sidecar-amd64:1.14.9 
+docker rmi 10.73.32.157:5000/k8s-dns-dnsmasq-nanny-amd64:1.14.9 
+docker rmi 10.73.32.157:5000/dnsmasq-metrics-amd64:1.0 
+docker rmi 10.73.32.157:5000/kube-discovery-amd64:1.0
+docker rmi 10.73.32.157:5000/exechealthz-amd64:1.1 
+docker rmi 10.73.32.157:5000/pause-amd64:3.0 
+docker tag gcr.io/google_containers/pause-amd64:3.0 k8s.gcr.io/pause-amd64:3.1
+docker tag gcr.io/google_containers/etcd-amd64:3.1.13 k8s.gcr.io/etcd-amd64:3.1.12
+docker tag gcr.io/google_containers/kube-apiserver-amd64:v1.10.2 k8s.gcr.io/kube-apiserver-amd64:v1.10.2
+docker tag gcr.io/google_containers/kube-controller-manager-amd64:v1.10.2 k8s.gcr.io/kube-controller-manager-amd64:v1.10.2 
+docker tag gcr.io/google_containers/kube-controller-manager-amd64:v1.10.2  k8s.gcr.io/kube-controller-manager-amd64:v1.10.2
+docker tag gcr.io/google_containers/kube-scheduler-amd64:v1.10.2 k8s.gcr.io/kube-scheduler-amd64:v1.10.2
+docker tag gcr.io/google_containers/kube-proxy-amd64:v1.10.2 k8s.gcr.io/kube-proxy-amd64:v1.10.2
+docker tag gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.9  k8s.gcr.io/k8s-dns-kube-dns-amd64:1.14.8
+docker tag gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.9  k8s.gcr.io/k8s-dns-dnsmasq-nanny-amd64:1.14.8
+docker tag gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.9  k8s.gcr.io/k8s-dns-sidecar-amd64:1.14.8 
+docker rmi gcr.io/google_containers/kube-controller-manager-amd64:v1.10.2
+docker rmi gcr.io/google_containers/kube-scheduler-amd64:v1.10.2             
+docker rmi gcr.io/google_containers/kube-apiserver-amd64:v1.10.2            
+docker rmi gcr.io/google_containers/kube-proxy-amd64:v1.10.2             
+docker rmi gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.9   
+docker rmi gcr.io/google_containers/etcd-amd64:3.1.13 
+docker rmi gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.9 
+docker rmi gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.9 
+docker rmi gcr.io/google_containers/dnsmasq-metrics-amd64:1.0 
+docker rmi gcr.io/google_containers/kube-discovery-amd64:1.0
+docker rmi gcr.io/google_containers/exechealthz-amd64:1.1 
+docker rmi gcr.io/google_containers/pause-amd64:3.0 
+docker pull 10.73.32.157:5000/kube-controller-manager-amd64:v1.10.2
+docker tag 10.73.32.157:5000/kube-controller-manager-amd64:v1.10.2 k8s.gcr.io/kube-controller-manager-amd64:v1.10.2
