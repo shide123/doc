@@ -10,6 +10,7 @@ docker pull 10.73.32.157:5000/dnsmasq-metrics-amd64:1.0
 docker pull 10.73.32.157:5000/kube-discovery-amd64:1.0
 docker pull 10.73.32.157:5000/exechealthz-amd64:1.1 
 docker pull 10.73.32.157:5000/pause-amd64:3.0 
+docker pull 10.73.32.157:5000/flannel:v0.9.1
 docker tag 10.73.32.157:5000/kube-controller-manager-amd64:v1.10.2 gcr.io/google_containers/kube-controller-manager-amd64:v1.10.2
 docker tag 10.73.32.157:5000/kube-scheduler-amd64:v1.10.2  gcr.io/google_containers/kube-scheduler-amd64:v1.10.2         
 docker tag 10.73.32.157:5000/kube-apiserver-amd64:v1.10.2    gcr.io/google_containers/kube-apiserver-amd64:v1.10.2         
