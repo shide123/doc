@@ -39,3 +39,6 @@ etcd:
   - http://10.16.86.117:2379
 kubernetesVersion: v1.10.2
 
+3.初始化网络：
+kubectl apply -f kube-flannel.yml
+kubectl apply -f kube-flannel-rbac.yml
