@@ -75,7 +75,7 @@ spec:
         - name: flannel-cfg
           mountPath: /etc/kube-flannel/
       - name: install-cni
-        image: quay.io/coreos/flannel:v0.8.0-amd64
+        image: 10.73.32.157:5000/flannel:v0.9.1
         command: [ "/bin/sh", "-c", "set -e -x; cp -f /etc/kube-flannel/cni-conf.json /etc/cni/net.d/10-flannel.conf; while true; do sleep 3600; done" ]
         volumeMounts:
         - name: cni
