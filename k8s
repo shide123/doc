@@ -1,7 +1,7 @@
 1.etcd 搭建：
-
+（1）下载镜像
 ------未加证书：
-（1） docker run -d --name etcd \
+（2） docker run -d --name etcd \
     -p 2379:2379 \
     -p 2380:2380 \
     --volume=etcd-data:/etcd-data \
@@ -12,5 +12,30 @@
     --advertise-client-urls http://10.16.86.117:2379 --listen-client-urls http://0.0.0.0:2379 \
     --initial-cluster-state new \
     --initial-cluster-token docker-etcd \
-    --initial-cluster node1=http://10.16.86.117:2380,node2=http://10.16.86.116:2380,node3=http://10.16.86.114:2380  
- （2）
+    --initial-cluster node1=http://10.16.86.117:2380,node2=http://10.16.86.116:2380
+2.
+下载k8s:
+ (1) 
+ cat > /etc/yum.repo.d/kubernetes.repo <<EOF
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=0
+repo_gpgcheck=0
+EOF
+(2)
+yum -y install –downloadonly –downloaddir=/tmp/k8s kubectl kubeadm kubelet kubernetes-cni
+拷贝至服务器解压 yum -y localinstall ./*rpm
+配置初始化kubeadm：
+kubeadm-config.yml:
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+api:
+  advertiseAddress: 10.16.86.116
+etcd:
+  endpoints:
+  - http://10.16.86.116:2379
+  - http://10.16.86.117:2379
+kubernetesVersion: v1.10.2
+
